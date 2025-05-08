@@ -4,6 +4,11 @@ Replication package for the analysis of the Generative AI research landscape at 
 
 ## Running
 
+# .env file structure
+```
+NEBULA_TOKEN=<your_token_here>
+```
+
 ### Prerequisites
 
 ```python
