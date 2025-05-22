@@ -1,0 +1,5 @@
+colorama
+pandas
+python_dotenv
+requests
+tqdm
