@@ -3,3 +3,5 @@ pandas
 python_dotenv
 requests
 tqdm
+matplotlib
+seaborn
