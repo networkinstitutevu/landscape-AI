@@ -30,7 +30,7 @@ BANNER = r"""
 
 load_dotenv('.env')
 
-NEBULA_URL = 'https://nebula.cs.vu.nl/api/chat/completions'
+NEBULA_URL = 'http://145.38.192.47/api/chat/completions'
 NEBULA_TOKEN = str(os.getenv('NEBULA_TOKEN'))
 
 
@@ -169,7 +169,7 @@ def classify_paper(file_df, system_prompt, user_prompt, model):
         if index % 10 == 0 and index > 0:
             # Make save messages less frequent but still informative
             print(f"{Fore.CYAN}💾 Saving progress ({index}/{total} papers){Style.RESET_ALL}")
-            file_df.to_csv("data/classified_data.csv", index=False)
+            file_df.to_csv("data/classified_data_gemma.csv", index=False)
 
     progress_bar.close()
 
@@ -208,7 +208,7 @@ if __name__ == '__main__':
     # Loading animation
     spinner(2)
 
-    file_df = csvparser.get_csv("data/classified_data.csv")
+    file_df = csvparser.get_csv("data/NI_data.csv")
 
     print(f"{Fore.GREEN}✅ Data loaded successfully! Found {len(file_df)} records.{Style.RESET_ALL}")
 
@@ -216,7 +216,7 @@ if __name__ == '__main__':
         file_df=file_df,
         system_prompt=SYSTEM_PROMPT_TEMPLATE,
         user_prompt=USER_PROMPT_TEMPLATE,
-        model='llama3.1:8b'
+        model='gemma3:27B'
     )
 
     # Final success message with ASCII art
